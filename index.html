@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07091a" />
+    <title>외계 행군</title>
+    <meta
+      name="description"
+      content="검 하나로 외계 군단의 행진을 버티는 2D 액션. 점프, 웅크리기, 대시, 베기로 방패병·총병·UFO를 상대한다."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="game" width="960" height="540" tabindex="0" aria-label="외계 행군 게임 화면"></canvas>
+      <button id="mute" type="button" aria-pressed="false">소리</button>
+      <div id="overlay">
+        <section class="panel" id="panel"></section>
+      </div>
+      <div id="touch" aria-label="터치 조작">
+        <div class="cluster">
+          <button type="button" data-k="a" aria-label="뒤로">뒤</button>
+          <button type="button" data-k="d" aria-label="앞으로">앞</button>
+        </div>
+        <div class="cluster">
+          <button type="button" data-k="q" aria-label="대시">대시</button>
+          <button type="button" data-k="w" aria-label="점프">점프</button>
+          <button type="button" data-k="s" aria-label="웅크리기">숙이기</button>
+          <button type="button" data-k="attack" class="primary" aria-label="공격">베기</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
