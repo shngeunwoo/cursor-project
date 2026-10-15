@@ -1,0 +1,254 @@
+:root {
+  color: #e7f6e4;
+  background: #07091a;
+  font-family: "IBM Plex Sans KR", "Noto Sans CJK KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(900px 420px at 70% -10%, rgba(125, 206, 160, 0.16), transparent 60%),
+    #07091a;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+#stage {
+  position: relative;
+  width: min(100vw, calc(100dvh * 960 / 540));
+  aspect-ratio: 960 / 540;
+  max-height: 100dvh;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #07091a;
+  outline: none;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+canvas:focus-visible {
+  outline: 2px solid rgba(214, 255, 122, 0.55);
+  outline-offset: 3px;
+}
+
+#mute {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  min-width: 52px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(214, 255, 122, 0.45);
+  background: rgba(8, 12, 18, 0.82);
+  color: #e7ffe4;
+  font: 14px "Do Hyeon", "IBM Plex Sans KR", sans-serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+#mute[aria-pressed="true"] {
+  color: #8d978f;
+  border-color: rgba(141, 151, 143, 0.5);
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 8, 16, 0.62);
+  padding: 16px;
+}
+
+#overlay[hidden] { display: none; }
+
+.panel {
+  width: min(440px, 100%);
+  max-height: calc(100% - 8px);
+  overflow: auto;
+  padding: 22px 22px 18px;
+  background: #10161c;
+  border: 1px solid rgba(190, 255, 170, 0.35);
+  box-shadow: 6px 6px 0 #05070c;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #d6ff7a;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Do Hyeon", "IBM Plex Sans KR", sans-serif;
+  font-size: 52px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #f3ffe8;
+}
+
+.lead, .cause {
+  margin: 12px 0 0;
+  color: #d5e2cf;
+  line-height: 1.55;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keys li, .tips span {
+  color: #e7f6e4;
+  font-size: 14px;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.4em;
+  margin-right: 4px;
+  padding: 1px 6px;
+  border: 1px solid #3e5a40;
+  background: #0c1210;
+  color: #e7ffcf;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tips {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(190, 255, 170, 0.18);
+}
+
+.tips span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  background: #d6ff7a;
+}
+
+.best {
+  margin: 12px 0 0;
+  color: #ffe08a;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.stats div {
+  padding: 8px;
+  background: #0c1218;
+  border: 1px solid rgba(190, 255, 170, 0.16);
+}
+
+.stats dt {
+  color: #8d978f;
+  font-size: 12px;
+}
+
+.stats dd {
+  margin: 4px 0 0;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 22px;
+}
+
+button.action, .panel button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 0;
+  background: #d6ff7a;
+  color: #14210c;
+  font: 26px "Do Hyeon", sans-serif;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #05070c;
+}
+
+.panel button:hover { background: #eaffb0; }
+.panel button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #05070c; }
+
+.footnote {
+  margin: 10px 0 0;
+  color: #8d978f;
+  font-size: 12px;
+  text-align: center;
+}
+
+#touch {
+  display: none;
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 5;
+  justify-content: space-between;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.cluster {
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+#touch button {
+  min-width: 62px;
+  height: 54px;
+  padding: 0 10px;
+  border: 1px solid rgba(214, 255, 122, 0.4);
+  background: rgba(10, 14, 20, 0.78);
+  color: #e7ffe4;
+  font: 18px "Do Hyeon", sans-serif;
+  touch-action: none;
+  user-select: none;
+}
+
+#touch button.primary,
+#touch button.held,
+#touch button:active {
+  background: #d6ff7a;
+  color: #14210c;
+}
+
+@media (pointer: coarse), (max-width: 800px) {
+  #touch { display: flex; }
+  #mute { top: auto; right: 12px; bottom: 72px; }
+  h1 { font-size: 40px; }
+}
+
+@media (max-height: 520px) {
+  h1 { font-size: 34px; }
+  .lead { display: none; }
+}
